@@ -65,6 +65,17 @@ public:
         users.push_back(User(userId, name)); //Add a new user to the vector
         cout << "User added: " << name << endl;
     }
+void displayIssuedBooks() {
+    bool found = false;
+    for (const auto& book : books) {
+        if (book.getIsIssued()) {
+            cout << book.getTitle() << " is issued (Return by "
+                 << book.getReturnDate() << ")" << endl;
+            found = true;
+        }
+    }
+    if (!found) cout << "No books are currently issued." << endl;
+}
 
     //find the book and the user
     void issueBook(int bookId, int userId, const string& issueDate, const string& returnDate) {
